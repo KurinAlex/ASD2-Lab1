@@ -3,7 +3,7 @@
 #include <iostream>
 
 template<class T>
-class DynamicArray : IList<T>
+class DynamicArray
 {
 public:
 	DynamicArray()
