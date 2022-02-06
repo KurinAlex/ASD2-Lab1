@@ -9,8 +9,8 @@ public:
 	DynamicArray()
 	{
 		m_size = 0;
-		m_capasity = 4;
-		m_array = new T[m_capasity];
+		m_capacity = 4;
+		m_array = new T[m_capacity];
 	}
 
 	~DynamicArray()
@@ -20,21 +20,25 @@ public:
 
 	void push_back(T el)
 	{
-		if (m_size == m_capasity)
+		if (m_size == m_capacity)
 		{
-			reserve(0);
+			reserve();
 		}
 		m_array[m_size++] = el;
 	}
 
 	void push_front(T el)
 	{
-		if (m_size == m_capasity)
+		if (m_size == m_capacity)
 		{
-			reserve(1);
+			reserve();
+		}
+		m_size++;
+		for (size_t i = 1; i < m_size; i++)
+		{
+			m_array[i] = m_array[i - 1];
 		}
 		m_array[0] = el;
-		m_size++;
 	}
 
 	T pop_back()
@@ -93,17 +97,18 @@ public:
 
 private:
 	size_t m_size;
-	size_t m_capasity;
+	size_t m_capacity;
 	T* m_array;
 
-	void reserve(size_t start_pos)
+	void reserve()
 	{
-		m_capasity *= 2;
-		T* tmp_array = new T[m_capasity];
+		m_capacity *= 2;
+		T* tmp_array = new T[m_capacity];
 		for (size_t i = 0; i < m_size; i++)
 		{
-			tmp_array[i + start_pos] = m_array[i];
+			tmp_array[i] = m_array[i];
 		}
+		delete[] m_array;
 		m_array = tmp_array;
 	}
 };

@@ -120,4 +120,6 @@ int main()
 
 	end = clock();
 	std::cout << "All operations: " << GetTime(start, end) << " sec\n\n";
+
+	std::cin.get();
 }

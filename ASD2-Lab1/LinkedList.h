@@ -84,7 +84,9 @@ public:
 		}
 		else
 		{
+			Node<T>* tmp = m_head;
 			m_head = m_head->next;
+			delete tmp;
 		}
 		return to_remove;
 	}
@@ -108,6 +110,7 @@ public:
 			{
 				tmp = tmp->next;
 			}
+			delete m_tail;
 			tmp->next = NULL;
 			m_tail = tmp;
 		}
