@@ -140,6 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ASD2-Lab1.cpp" />
+    <ClCompile Include="Meme.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DynamicArray.h" />
+    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="Meme.h" />
+    <ClInclude Include="Node.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
